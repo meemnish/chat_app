@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+
+    <link rel="stylesheet" href="static/css/chat.css">
+    <link rel="stylesheet" href="static/css/home.css">
+                                                                     <!-- CSS stylesheet for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+</head>
+
+<body>
+    
+    <div class="bg">                              <!-- chat bar block -->
+        <h2 align="center"> 
+            CSE library<br>
+            Ask any question<br></h2>
+        &emsp;&emsp;&emsp;&emsp;    Rules:<br><br>
+        &emsp;&emsp;&emsp;&emsp;1. to know the book which is used the most,  <br>
+        &emsp;&emsp;&emsp;&emsp;simply write "suggest book of (subject name)" <br>
+        &emsp;&emsp;&emsp;&emsp;For example, "suggest book of artificial intelligence".<br><br>
+
+        &emsp;&emsp;&emsp;&emsp;2. To know about the shelf in which the book of a specific<br>
+        &emsp;&emsp;&emsp;&emsp;subject is kept, simple write the subject name.<br>
+        &emsp;&emsp;&emsp;&emsp;For example, "artificial intelligence".<br><br>
+
+        &emsp;&emsp;&emsp;&emsp;3. Remember to write everything in small letters.<br><br>
+
+        &emsp;&emsp;&emsp;&emsp;4. To know about the opening and closing time, <br>
+        &emsp;&emsp;&emsp;&emsp;simply write "opening time" or "closing time".<br><br>
+    </div>
+    <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Chat with me!               <!-- Chatbox header -->
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+
+        <div class="content">
+            <div class="full-chat-block">
+                <div class="outer-container">            <!-- Message Container -->
+                    <div class="chat-container">
+                        
+                        <div id="chatbox">               <!-- Messages -->
+                            <h5 id="chat-timestamp"></h5>
+                               
+                            <p id="botStarterMessage" class="botText"><span>Loading...</span></p>    <!-- To show that it is trying to retrieve some information -->
+                        </div>
+
+
+                        <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg"
+                                    placeholder="Tap 'Enter' to send a message">
+                                <p></p>
+                            </div>
+
+                            <div class="chat-bar-icons">
+                                <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                    onclick="heartButton()"></i>
+                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                            </div>
+                        </div>
+
+                        <div id="chat-bar-bottom">
+                            <p></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="static/scripts/responses.js"></script>
+<script src="static/scripts/chat.js"></script>
+
+</html>
