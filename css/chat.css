@@ -1,0 +1,170 @@
+.chat-bar-collapsible {     
+    position: fixed;   /*gives it a fixed position*/
+    bottom: 0;         /*places chat header down in the bottom, it will always remain at the bottom*/
+    right: 50px;       /*it places 50 pixel between the right and the element*/
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);      /*to give it a nice contrast*/
+}
+
+.collapsible {         /*chat header element box*/
+    background-color: rgb(82, 151, 255);
+    color: white;
+    cursor: pointer;    /*to make sure that the user understands that it is a clickable elemnet*/
+    padding: 18px;
+    width: 350px;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    border-radius: 10px 10px 0px 0px;
+    border: 3px solid white;
+    border-bottom: none;
+}
+
+.content {
+    max-height: 0;           /*so that it hides chatbox initially*/
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.full-chat-block {           /*to show all of the elements inside the chat block*/
+    width: 350px;
+    background: white;
+    text-align: center;
+    overflow: auto;
+    scrollbar-width: none;
+    height: max-content;
+    transition: max-height 0.2s ease-out;
+}
+
+.outer-container {
+    min-height: 500px;       /*after clicking, it will have a minimum height of 500px*/
+    bottom: 0%;              /*even if there is only one text*/
+    position: relative;
+}
+
+.chat-container {
+    max-height: 500px;    /*it guarantees that the max height stays 500px to get a scrolling behaviour*/
+    width: 100%;          /*otherwise it will grow infinitely*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    scroll-behavior: smooth;
+    hyphens: auto;
+}
+
+.chat-container::-webkit-scrollbar {        /*pseudo element*/
+    display: none;             /*to make sure it remains hidden inside the chatbox*/
+}
+
+.chat-bar-input-block {       /*takes user input*/
+    display: flex;            /*so that all the items inside are evenly distributed*/
+    float: left;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(235, 235, 235);   /*background of outer container*/
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.chat-bar-icons {           
+    display: flex;      /* so that all the items inside are evenly distributed */       
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+    font-size: 20px;
+}
+
+#chat-icon:hover {      /* pseudo element which is the hover */
+    opacity: .7;        /* fades out to 0.7 opacity */
+}                       /* so that the user understands that thay can use it as a button */
+
+#userInput {
+    width: 75%;     /* to make sure that it is occupying 75% no matter how much they scroll */
+}                   /* left 25% is for text span, heart button and send button */
+
+.input-box {
+    float: left;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;     /* rounded corners */  
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    background-color: white;
+    outline: none;       /* there will be no outline if we click on it */
+}
+
+.userText {              /* define the text which is inside the message */
+    color: white;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;    /* usertext will be added to the right */
+    clear: both;
+}
+
+.userText span {              /* define the box on the outside */
+    line-height: 1.5em;
+    display: inline-block;
+    background: #5ca6fa;    /* background will be blue */
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards;    /* everytime the message will float up slightly */
+}                                       /* when it gets insertedz */
+
+.botText {                  /* text color will be black */
+    color: #000;       
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;       /* text remains on the left */
+}
+
+.botText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards
+}
+
+@keyframes floatup {
+    from {
+        transform: translateY(14px);
+        opacity: .0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:600px) {    /* responsive */
+    .full-chat-block {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .chat-bar-collapsible {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .collapsible {
+        width: 100%;
+        border: 0px;
+        border-top: 3px solid white;
+        border-radius: 0px;
+    }
+}
